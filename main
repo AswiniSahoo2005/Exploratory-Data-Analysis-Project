@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load dataset
+df = pd.read_csv("data/dataset.csv")
+
+# Dataset information
+print(df.info())
+
+# Statistical summary
+print(df.describe())
+
+# Missing values
+print(df.isnull().sum())
+
+# Correlation Heatmap
+plt.figure(figsize=(8,6))
+sns.heatmap(df.corr(numeric_only=True), annot=True, cmap="coolwarm")
+plt.title("Correlation Matrix")
+plt.show()
